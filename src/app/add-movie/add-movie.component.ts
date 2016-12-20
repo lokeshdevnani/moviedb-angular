@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { Movie } from '../movie';
 import { MovieService } from '../movie.service';
@@ -17,7 +18,8 @@ export class AddMovieComponent implements OnInit {
    'Music', 'Musical', 'Mystery', 'Romance', 'Sci-Fi', 'Sport', 'Thriller', 'War', 'Western' ];
 
   constructor(
-    private movieService: MovieService
+    private movieService: MovieService,
+    private router: Router
   ) {
     this.movie = new Movie;
    }
@@ -37,8 +39,8 @@ export class AddMovieComponent implements OnInit {
 
     this.movieService.addMovie(formValues)
         .subscribe(movie => {
-          console.log("posted");
-          console.log(movie);
+          console.log("Movie Added Successfully");
+          this.router.navigate(['/movies']); // navigate to the main route
         });
   }
 
