@@ -2,6 +2,13 @@ export class Movie {
     id: Number;
     title: String;
     year: Number;
-    director: String;
     summary: String;
+    director: {
+        id: Number,
+        name: String
+    };
+    genre: {
+        id: Number,
+        name: String
+    }
 }
