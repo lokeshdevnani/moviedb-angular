@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+import { Movie } from '../movie';
 
 @Component({
   selector: 'app-add-movie',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddMovieComponent implements OnInit {
 
-  constructor() { }
+  movie: Movie;
+  genreList = ['Action', 'Adventure', 'Animation', 'Biography', 'Comedy', 'Crime', 
+   'Documentary', 'Drama', 'Family', 'Fantasy', 'Film-Noir', 'History', 'Horror',
+   'Music', 'Musical', 'Mystery', 'Romance', 'Sci-Fi', 'Sport', 'Thriller', 'War', 'Western' ];
+
+  constructor() {
+    this.movie = new Movie;
+   }
 
   ngOnInit() {
+  }
+
+  addMovie(f: NgForm) {
+    console.log(f.value);
   }
 
 }
