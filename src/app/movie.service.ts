@@ -24,6 +24,20 @@ export class MovieService {
                .get(`${this.URL}/movies`)
                .map( (r: Response) => {
                   return r.json() as Movie[];
+                })
+                .catch(error => {
+                  console.log(error);
+                  return Observable.of<Movie[]>([]);
+                });
+  }
+
+  getMovie(id: Number): Observable<Movie> {
+    return this.http
+               .get(`${this.URL}/movies/${id}`)
+               .map( (r: Response) => r.json() as Movie )
+               .catch(error => {
+                  console.log(error);
+                  return Observable.of<Movie>(null);
                 });
   }
 
