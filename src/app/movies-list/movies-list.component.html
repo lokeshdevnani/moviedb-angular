@@ -2,6 +2,6 @@
 <p>Checkout the top movies of this year</p>
 
 <div class="col-md-6" *ngFor="let movie of movies">
-    <app-movie></app-movie>
+    <app-movie [movie]="movie"></app-movie>
 </div>
 
