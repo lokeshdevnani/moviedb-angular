@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Movie } from '../movie';
 
 @Component({
@@ -7,11 +9,18 @@ import { Movie } from '../movie';
   styleUrls: ['./movie.component.css']
 })
 export class MovieComponent implements OnInit {
+  @Input()
   movie: Movie;
-  
-  constructor() { }
+
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  goToDetail(){
+    this.router.navigate(['/movie', this.movie.id]);
   }
 
 }
