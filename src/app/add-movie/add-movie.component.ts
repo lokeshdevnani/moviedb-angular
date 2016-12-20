@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { Movie } from '../movie';
+import { MovieService } from '../movie.service';
 
 @Component({
   selector: 'app-add-movie',
@@ -11,11 +12,13 @@ import { Movie } from '../movie';
 export class AddMovieComponent implements OnInit {
 
   movie: Movie;
-  genreList = ['Action', 'Adventure', 'Animation', 'Biography', 'Comedy', 'Crime', 
+  genreList = ['Action', 'Adventure', 'Animation', 'Biography', 'Comedy', 'Crime',
    'Documentary', 'Drama', 'Family', 'Fantasy', 'Film-Noir', 'History', 'Horror',
    'Music', 'Musical', 'Mystery', 'Romance', 'Sci-Fi', 'Sport', 'Thriller', 'War', 'Western' ];
 
-  constructor() {
+  constructor(
+    private movieService: MovieService
+  ) {
     this.movie = new Movie;
    }
 
@@ -23,7 +26,20 @@ export class AddMovieComponent implements OnInit {
   }
 
   addMovie(f: NgForm) {
-    console.log(f.value);
+    let formValues = f.value;
+    formValues.director = {
+      'name': formValues.director
+    };
+    formValues.genre = {
+      'id': formValues.genre,
+      'name': this.genreList[formValues.genre]
+    };
+
+    this.movieService.addMovie(formValues)
+        .subscribe(movie => {
+          console.log("posted");
+          console.log(movie);
+        });
   }
 
 }

@@ -61,7 +61,7 @@
       <label for="name">Genre</label>
       <select name="genre" id="genre" class="form-control"
         [(ngModel)]="movie.genre" #genre="ngModel" required>
-        <option *ngFor="let genreOption of genreList" [value]="genreOption">{{genreOption}}</option>
+        <option *ngFor="let genreOption of genreList; let i=index;" [value]="i">{{genreOption}}</option>
       </select>
       <div *ngIf="genre.touched && !genre.valid"  class="alert alert-danger">
         <div *ngIf="genre.errors.required"> Select a movie genre </div>

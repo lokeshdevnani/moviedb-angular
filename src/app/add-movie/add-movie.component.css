@@ -1,0 +1,11 @@
+/* field has been previously visited, and is invalid */
+input.ng-touched.ng-invalid,
+select.ng-touched.ng-invalid {
+      border: 2px solid red;
+}
+
+/* field has been unvisited and unchanged */
+input.ng-touched.ng-valid,
+select.ng-touched.ng-valid {
+    border: 2px solid #18bc9c;
+}
