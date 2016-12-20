@@ -1,7 +1,7 @@
 export class Movie {
     id: Number;
     title: String;
-    year: Number;
+    releaseYear: Number;
     summary: String;
     director: {
         id: Number,
