@@ -4,13 +4,13 @@
   </div>
   <div class="col-md-8">
     <h4>
-      <span class="title">{{movie.title}}</span>
-      <span class="year">({{movie.releaseYear}})</span>
+      <span class="title">{{movie?.title}}</span>
+      <span class="year">({{movie?.releaseYear}})</span>
     </h4>
-    <div class="summary"> {{movie.summary}} </div>
+    <div class="summary"> {{movie?.summary}} </div>
     <div class="bottom-bar">
-      <div class="genre"> {{movie.genre.name}}</div>
-      <div class="director"> {{movie.director.name}} </div>
+      <div class="genre"> {{movie?.genre?.name}}</div>
+      <div class="director"> {{movie?.director?.name}} </div>
     </div>
   </div>
   <div class="clearfix"></div>

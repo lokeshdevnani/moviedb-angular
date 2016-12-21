@@ -1,0 +1,46 @@
+section{
+    margin: 1em 0;
+    display: flex;
+    height: 100%;
+    cursor: pointer;
+}
+
+.title{
+    font-weight: bold;
+}
+
+.bottom-bar{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    margin: 10px;
+}
+
+.genre{
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 10px 0px 0px 10px;
+    background: dodgerblue;
+    color: white;
+}
+.director {
+    display: inline-block;
+    font-weight: bold;
+    padding: 3px 10px;
+    text-align: right;
+    align-self: flex-end;
+    margin-left: auto;
+}
+.director::before{
+    content: "-";
+    color: #777;
+}
+
+.img-container{
+    padding-left: 0;
+}
+
+
+ 
