@@ -39,7 +39,7 @@ export class AddMovieComponent implements OnInit {
 
     this.movieService.addMovie(formValues)
         .subscribe(movie => {
-          console.log("Movie Added Successfully");
+          console.log('Movie Added Successfully');
           this.router.navigate(['/movies']); // navigate to the main route
         });
   }
