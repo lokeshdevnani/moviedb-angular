@@ -48,7 +48,7 @@
       <label for="name">Director</label>
       <input type="text" class="form-control"
         name="director"
-        [(ngModel)]="movie.director"
+        [(ngModel)]="movie.director.name"
         #director="ngModel"
         required minlength="5" maxlength="50" />
       <div *ngIf="director.touched && !director.valid"  class="alert alert-danger">
@@ -60,7 +60,7 @@
     <div class="form-group">
       <label for="name">Genre</label>
       <select name="genre" id="genre" class="form-control"
-        [(ngModel)]="movie.genre" #genre="ngModel" required>
+        [(ngModel)]="movie.genre.name" #genre="ngModel" required>
         <option *ngFor="let genreOption of genreList; let i=index;" [value]="i">{{genreOption}}</option>
       </select>
       <div *ngIf="genre.touched && !genre.valid"  class="alert alert-danger">

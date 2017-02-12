@@ -1,9 +1,11 @@
+import { Config } from './../shared/config';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { Movie } from '../movie';
 import { MovieService } from '../movie.service';
+
 
 @Component({
   selector: 'app-add-movie',
@@ -13,16 +15,14 @@ import { MovieService } from '../movie.service';
 export class AddMovieComponent implements OnInit {
 
   movie: Movie;
-  genreList = ['Action', 'Adventure', 'Animation', 'Biography', 'Comedy', 'Crime',
-   'Documentary', 'Drama', 'Family', 'Fantasy', 'Film-Noir', 'History', 'Horror',
-   'Music', 'Musical', 'Mystery', 'Romance', 'Sci-Fi', 'Sport', 'Thriller', 'War', 'Western' ];
+  genreList = Config.genreList;
 
   constructor(
     private movieService: MovieService,
     private router: Router
   ) {
     this.movie = new Movie;
-   }
+  }
 
   ngOnInit() {
   }

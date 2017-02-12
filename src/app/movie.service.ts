@@ -1,3 +1,4 @@
+import { Config } from './shared/config';
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 
@@ -9,7 +10,7 @@ import { MOVIES } from './mock-movies';
 @Injectable()
 export class MovieService {
 
-  private URL = "http://localhost:8080";
+  private URL = Config.url;
 
   constructor(
     private http: Http
@@ -46,8 +47,17 @@ export class MovieService {
     let headers    = new Headers({ 'Content-Type': 'application/json' });
 
     return this.http.post(`${this.URL}/movies`, bodyString, { headers: headers })
-                         .map((res: Response) => res.json())
-                         .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+                    .map((res: Response) => res.json())
+                    .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  editMovie(movie: Movie): Observable<Movie> {
+    let bodyString = JSON.stringify(movie);
+    let headers    = new Headers({ 'Content-Type': 'application/json' });
+
+    return this.http.put(`${this.URL}/movies/${movie.id}`, bodyString, { headers: headers })
+                    .map((res: Response) => res.json())
+                    .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
 }

@@ -10,5 +10,10 @@ export class Movie {
     genre: {
         id: Number,
         name: String
+    };
+
+    constructor() {
+        this.genre = {id: 0, name: ''};
+        this.director = {id: 0, name: ''};
     }
 }
