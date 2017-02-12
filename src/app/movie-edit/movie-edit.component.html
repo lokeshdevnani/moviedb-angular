@@ -1,4 +1,6 @@
-<h1> Edit Movie </h1>
+<section class="col-md-offset-1 col-md-10">
+
+<h1> Edit Movie : {{movie.title}}</h1>
 
 <form #f="ngForm" (ngSubmit)="editMovie(f.form)">
 
@@ -70,5 +72,7 @@
         value="Submit"
         [disabled]="!f.valid" />
 </form>
+
+</section>
 
 
