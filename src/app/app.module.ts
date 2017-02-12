@@ -14,6 +14,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieService } from './movie.service';
 import { AddMovieComponent } from './add-movie/add-movie.component';
 import { FooterComponent } from './footer/footer.component';
+import { MovieEditComponent } from './movie-edit/movie-edit.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FooterComponent } from './footer/footer.component';
     MovieDetailComponent,
     AddMovieComponent,
     FooterComponent,
+    MovieEditComponent,
   ],
   imports: [
     BrowserModule,

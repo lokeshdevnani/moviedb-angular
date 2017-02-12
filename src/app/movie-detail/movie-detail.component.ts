@@ -13,6 +13,7 @@ import { MovieService } from '../movie.service';
 export class MovieDetailComponent implements OnInit {
 
   movie: Movie;
+  isLoaded = false;
 
   constructor(
     private movieService: MovieService,
@@ -25,7 +26,11 @@ export class MovieDetailComponent implements OnInit {
         .switchMap((params: Params) => {
           return this.movieService.getMovie(+params["id"]);
         }).subscribe(movie => {
+          this.isLoaded = true;
           this.movie = movie;
+          if (!movie) {
+            alert('movie not found');
+          }
         });
   }
 

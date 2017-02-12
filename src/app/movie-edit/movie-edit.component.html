@@ -1,0 +1,74 @@
+<h1> Edit Movie </h1>
+
+<form #f="ngForm" (ngSubmit)="editMovie(f.form)">
+
+    <div class="form-group">
+      <label for="name">Movie Title</label>
+      <input type="text" class="form-control"
+        name="title"
+        [(ngModel)]="movie.title"
+        #title="ngModel"
+        required minlength="3" maxlength="50" />
+      <div *ngIf="title.touched && !title.valid"  class="alert alert-danger">
+        <div *ngIf="title.errors.required"> Movie title is required </div>
+        <div *ngIf="title.errors.minlength"> Movie title must be atleast {{ title.errors.minlength.requiredLength }} characters. </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Release Year</label>
+      <input type="text" class="form-control"
+        name="releaseYear"
+        [(ngModel)]="movie.releaseYear"
+        #releaseYear="ngModel"
+        required pattern="[0-9]{4,4}" />
+      <div *ngIf="releaseYear.touched && !releaseYear.valid"  class="alert alert-danger">
+        <div *ngIf="releaseYear.errors.required"> Release Year is required </div>
+        <div *ngIf="releaseYear.errors.pattern"> Year format required. Eg. 2016</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Summary</label>
+      <input type="text" class="form-control"
+        name="summary"
+        [(ngModel)]="movie.summary"
+        #summary="ngModel"
+        required minlength="30" maxlength="300" />
+      <div *ngIf="summary.touched && !summary.valid"  class="alert alert-danger">
+        <div *ngIf="summary.errors.required"> Movie Summary is required </div>
+        <div *ngIf="summary.errors.minlength"> Movie Summary must be atleast {{ summary.errors.minlength.requiredLength }} characters. </div>
+        <div *ngIf="summary.errors.maxlength"> Movie Summary must not exceed {{ summary.errors.minlength.requiredLength }} characters. </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Director</label>
+      <input type="text" class="form-control"
+        name="director"
+        [(ngModel)]="movie.director.name"
+        #director="ngModel"
+        required minlength="5" maxlength="50" />
+      <div *ngIf="director.touched && !director.valid"  class="alert alert-danger">
+        <div *ngIf="director.errors.required"> Director name is required </div>
+        <div *ngIf="director.errors.minlength"> Director name must be atleast {{ director.errors.minlength.requiredLength }} characters. </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Genre</label>
+      <select name="genre" id="genre" class="form-control"
+        [(ngModel)]="movie.genre.id" #genre="ngModel" required>
+        <option *ngFor="let genreOption of genreList; let i=index;" [value]="i" [selected]="genre===i">{{genreOption}}</option>
+      </select>
+      <div *ngIf="genre.touched && !genre.valid"  class="alert alert-danger">
+        <div *ngIf="genre.errors.required"> Select a movie genre </div>
+      </div>
+    </div>
+
+    <input type="submit" class="btn btn-success"
+        value="Submit"
+        [disabled]="!f.valid" />
+</form>
+
+

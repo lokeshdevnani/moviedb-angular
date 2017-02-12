@@ -1,4 +1,7 @@
-<section class="col-md-12">
+<section class="col-md-12" *ngIf="!isLoaded">
+  Loading...
+</section>
+<section class="col-md-12" *ngIf="isLoaded">
   <div class="col-md-4 img-container" >
     <img src="assets/img/dummy.png" alt="Movie" class="img-responsive">
   </div>
@@ -10,6 +13,7 @@
     <div class="summary"> {{movie?.summary}} </div>
     <div class="bottom-bar">
       <div class="genre"> {{movie?.genre?.name}}</div>
+      <a class="genre" [routerLink]="['edit']" > Edit </a>
       <div class="director"> {{movie?.director?.name}} </div>
     </div>
   </div>

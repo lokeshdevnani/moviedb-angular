@@ -19,7 +19,7 @@ export class MovieComponent implements OnInit {
   ngOnInit() {
   }
 
-  goToDetail(){
+  goToDetail() {
     this.router.navigate(['/movie', this.movie.id]);
   }
 
