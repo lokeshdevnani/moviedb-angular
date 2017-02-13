@@ -60,4 +60,10 @@ export class MovieService {
                     .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+  deleteMovie(id: Number): Observable<any> {
+    let headers    = new Headers({ 'Content-Type': 'application/json' });
+
+    return this.http.delete(`${this.URL}/movies/${id}`, { headers: headers });
+  }
+
 }

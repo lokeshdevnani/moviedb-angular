@@ -2,21 +2,41 @@
   Loading...
 </section>
 
+<div class="alert alert-danger fade in" *ngIf="!isLoaded && isError">
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
+    <strong>Error!</strong> A problem has been occurred while submitting your data.
+</div>
+
 <section class="col-md-offset-1 col-md-10" *ngIf="isLoaded">
   <div class="col-md-4 img-container" >
     <img src="assets/img/dummy.png" alt="Movie" class="img-responsive">
   </div>
   <div class="col-md-8">
-    <h4>
+    <h2>
       <span class="title">{{movie?.title}}</span>
       <span class="year">({{movie?.releaseYear}})</span>
-    </h4>
+    </h2>
+
+    <h4>Plot</h4>
     <div class="summary"> {{movie?.summary}} </div>
-    <div class="bottom-bar">
-      <div class="genre"> {{movie?.genre?.name}}</div>
-      <a class="genre" [routerLink]="['edit']" > Edit </a>
-      <div class="director"> {{movie?.director?.name}} </div>
+
+    <h4>Director</h4>
+    <div class="director"> {{movie?.director?.name}} </div>
+
+    <div class="genre-tag">
+        <div class="post-tag"> <a>{{movie?.genre?.name}}</a></div>
     </div>
+
+    <div class="bottom-bar">
+      <a class="btn btn-warning" [routerLink]="['edit']" >
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+      </a>
+      <a class="btn btn-danger" (click)="deleteMovie()" >
+        <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+      </a>
+
+    </div>
+
   </div>
   <div class="clearfix"></div>
 </section>

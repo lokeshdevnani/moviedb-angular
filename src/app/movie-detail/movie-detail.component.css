@@ -2,6 +2,16 @@ section{
     display: flex;
     height: 100%;
     cursor: pointer;
+    /*font-size: 16px;*/
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+h4 {
+    font-weight: bold;
+    margin-top: 30px;
 }
 
 .title{
@@ -17,24 +27,16 @@ section{
     margin: 10px;
 }
 
+.bottom-bar > a {
+    margin: 0 20px 0 0;
+}
+
 .genre{
     display: inline-block;
-    padding: 3px 10px;
+    padding: 10px 20px;
     border-radius: 10px 0px 0px 10px;
     background: dodgerblue;
     color: white;
-}
-.director {
-    display: inline-block;
-    font-weight: bold;
-    padding: 3px 10px;
-    text-align: right;
-    align-self: flex-end;
-    margin-left: auto;
-}
-.director::before{
-    content: "-";
-    color: #777;
 }
 
 .img-container{
@@ -42,4 +44,50 @@ section{
 }
 
 
- 
+
+
+.genre-tag {
+    background: #1f8dd6;
+    padding: 5px 15px;
+    position: relative;
+    font-size: 18px;
+    display: inline-block;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+.genre-tag a {
+    color: white;
+    font-weight: bold;
+}
+
+.genre-tag a:hover {
+    text-decoration: none;
+}
+
+.genre-tag:before {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    border-color: transparent #1f8dd6;
+    border-width: 17px 0 17px 17px;
+    top: 0;		
+    bottom: 0;
+    right: 0;
+    margin-right: -14px;
+}
+
+.genre-tag:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    width: 4px;
+    height: 4px;
+    right: 0px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background: #fff;
+    -moz-box-shadow: -1px -1px 2px #004977;
+    -webkit-box-shadow: -1px -1px 2px #004977;
+    box-shadow: -1px -1px 2px #004977;
+}
