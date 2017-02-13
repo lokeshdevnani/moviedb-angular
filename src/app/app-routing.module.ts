@@ -12,11 +12,11 @@ import { AuthGuardService } from './auth-guard.service';
 
 const routes: Routes = [
     { path: '', redirectTo: '/movies', pathMatch: 'full' },
-    { path: 'movies', component: MoviesListComponent },
-    { path: 'movies/new', component: AddMovieComponent, canActivate: [AuthGuardService] },
-    { path: 'movie/:id', component: MovieDetailComponent },
-    { path: 'movie/:id/edit', component: MovieEditComponent },
-    { path: 'oauth/:token', component: OauthHandlerComponent }
+    { path: 'movies',         component: MoviesListComponent },
+    { path: 'movies/new',     component: AddMovieComponent,   canActivate: [AuthGuardService] },
+    { path: 'movie/:id',      component: MovieDetailComponent },
+    { path: 'movie/:id/edit', component: MovieEditComponent,  canActivate: [AuthGuardService] },
+    { path: 'oauth/:token',   component: OauthHandlerComponent }
 ];
 
 @NgModule({

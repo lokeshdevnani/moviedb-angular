@@ -1,3 +1,4 @@
+import { AuthHttp } from 'angular2-jwt';
 import { Config } from './shared/config';
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
@@ -13,7 +14,8 @@ export class MovieService {
   private URL = Config.apiURL;
 
   constructor(
-    private http: Http
+    private http: Http,
+    private authHttp: AuthHttp
   ) { }
 
   getMoviesFromSource(): Observable<Movie[]> {
@@ -46,7 +48,7 @@ export class MovieService {
     let bodyString = JSON.stringify(movie);
     let headers    = new Headers({ 'Content-Type': 'application/json' });
 
-    return this.http.post(`${this.URL}/movies`, bodyString, { headers: headers })
+    return this.authHttp.post(`${this.URL}/movies`, bodyString, { headers: headers })
                     .map((res: Response) => res.json())
                     .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
@@ -55,7 +57,7 @@ export class MovieService {
     let bodyString = JSON.stringify(movie);
     let headers    = new Headers({ 'Content-Type': 'application/json' });
 
-    return this.http.put(`${this.URL}/movies/${movie.id}`, bodyString, { headers: headers })
+    return this.authHttp.put(`${this.URL}/movies/${movie.id}`, bodyString, { headers: headers })
                     .map((res: Response) => res.json())
                     .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
@@ -63,7 +65,7 @@ export class MovieService {
   deleteMovie(id: Number): Observable<any> {
     let headers    = new Headers({ 'Content-Type': 'application/json' });
 
-    return this.http.delete(`${this.URL}/movies/${id}`, { headers: headers });
+    return this.authHttp.delete(`${this.URL}/movies/${id}`, { headers: headers });
   }
 
 }

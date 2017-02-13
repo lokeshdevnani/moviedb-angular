@@ -1,8 +1,9 @@
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { Http, RequestOptions } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -16,6 +17,10 @@ import { AddMovieComponent } from './add-movie/add-movie.component';
 import { FooterComponent } from './footer/footer.component';
 import { MovieEditComponent } from './movie-edit/movie-edit.component';
 import { OauthHandlerComponent } from './oauth-handler/oauth-handler.component';
+
+function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig(), http, options);
+}
 
 @NgModule({
   declarations: [
@@ -35,7 +40,11 @@ import { OauthHandlerComponent } from './oauth-handler/oauth-handler.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [MovieService],
+  providers: [MovieService, {
+    provide: AuthHttp,
+    useFactory: authHttpServiceFactory,
+    deps: [Http, RequestOptions]
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
