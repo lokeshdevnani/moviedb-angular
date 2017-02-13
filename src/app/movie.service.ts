@@ -10,7 +10,7 @@ import { MOVIES } from './mock-movies';
 @Injectable()
 export class MovieService {
 
-  private URL = Config.url;
+  private URL = Config.apiURL;
 
   constructor(
     private http: Http

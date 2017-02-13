@@ -12,11 +12,11 @@ export class AuthGuardService implements CanActivate {
   ) { }
 
   canActivate() {
-    console.log(this.auth);
     if (this.auth.loggedIn()) {
       return true;
     } else {
-      // this.router.navigateByUrl('/movies');
+      alert('This thing is for authorized personnel only. Please login to continue');
+      this.router.navigateByUrl('/');
       return false;
     }
   }

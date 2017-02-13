@@ -15,6 +15,7 @@ import { MovieService } from './movie.service';
 import { AddMovieComponent } from './add-movie/add-movie.component';
 import { FooterComponent } from './footer/footer.component';
 import { MovieEditComponent } from './movie-edit/movie-edit.component';
+import { OauthHandlerComponent } from './oauth-handler/oauth-handler.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { MovieEditComponent } from './movie-edit/movie-edit.component';
     AddMovieComponent,
     FooterComponent,
     MovieEditComponent,
+    OauthHandlerComponent,
   ],
   imports: [
     BrowserModule,

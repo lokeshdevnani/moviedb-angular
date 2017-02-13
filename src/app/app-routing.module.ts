@@ -1,3 +1,4 @@
+import { OauthHandlerComponent } from './oauth-handler/oauth-handler.component';
 import { AuthService } from './auth.service';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -13,8 +14,9 @@ const routes: Routes = [
     { path: '', redirectTo: '/movies', pathMatch: 'full' },
     { path: 'movies', component: MoviesListComponent },
     { path: 'movies/new', component: AddMovieComponent, canActivate: [AuthGuardService] },
-    { path: 'movie/:id', component: MovieDetailComponent  },
-    { path: 'movie/:id/edit', component: MovieEditComponent  }
+    { path: 'movie/:id', component: MovieDetailComponent },
+    { path: 'movie/:id/edit', component: MovieEditComponent },
+    { path: 'oauth/:token', component: OauthHandlerComponent }
 ];
 
 @NgModule({
