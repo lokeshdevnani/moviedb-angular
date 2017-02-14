@@ -18,7 +18,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MovieEditComponent } from './movie-edit/movie-edit.component';
 import { OauthHandlerComponent } from './oauth-handler/oauth-handler.component';
 
-function authHttpServiceFactory(http: Http, options: RequestOptions) {
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
 }
 
