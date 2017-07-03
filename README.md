@@ -2,10 +2,10 @@
 MovieDB is a worldwide movie database that lets you add new movies, see listing of movies and update details.
 
 ## Technologies Used
-	**Grails 3.x** => For building REST API
-	**MySQL** => RDBMS used for storing data about movies
-	**Angular** => Angular 2 Framework with Typescript to build web app frontend
-	**Bootstrap3** => Bootstrap3 Framework as a UI framework for rapid prototyping
+**Grails 3.x** => For building REST API
+**MySQL** => RDBMS used for storing data about movies
+**Angular** => Angular 2 Framework with Typescript to build web app frontend
+**Bootstrap3** => Bootstrap3 Framework as a UI framework for rapid prototyping
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.22-1.
 
